@@ -1,3 +1,6 @@
+import sys
+print(sys.path)
+
 class Calc:
     def plus(self, a, b):
         return a + b
