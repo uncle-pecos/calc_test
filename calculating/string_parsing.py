@@ -1,4 +1,5 @@
 def str_parse(inp):
+  inp = inp.replace(' ','')    
   inp = inp.replace(',','.')
   inp = inp.replace('(-','(0-')
   inp = inp.replace('((','(1*(')
