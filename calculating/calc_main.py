@@ -1,6 +1,3 @@
-import sys
-print(sys.path)
-
 class Calc:
     def plus(self, a, b):
         return a + b
@@ -16,5 +13,8 @@ class Calc:
             return 'zero division'
         else:
             return a/b
+
+    def step(self, a, b):
+        return a**b
 
 result = Calc()

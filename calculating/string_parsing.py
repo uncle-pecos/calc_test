@@ -1,19 +1,20 @@
+from calculating.str_check import checking
+
 def str_parse(inp):
-  inp = inp.replace(' ','')    
-  inp = inp.replace(',','.')
-  inp = inp.replace('(-','(0-')
-  inp = inp.replace('((','(1*(')
-  inp = inp.replace('(((','(1*(1*(')    
-  #inp = inp.replace('(','1*(')  
-  #print(inp)
-  if inp[0] == '-':
-    inp = inp[:0] + '0' + inp[0:]
+  znaki = ('+', '-', '*', '/', '^','(', ')')
   temp_arr = ['']
+  #print (checking(inp))
+  if checking(inp) == False:     
+     temp_arr = ['=']
+     return temp_arr 
+  else:
+    inp = checking(inp)     
+  #print(inp)      
   i = 0
   j = 0
-  znaki = ('+', '-', '*', '/', '(', ')')
+
   try:
-    while i<len(inp):
+    while i<len(inp):   
       while i<len(inp) and inp[i] in znaki:      
         temp_arr[j] += inp[i]
         i += 1
@@ -23,6 +24,7 @@ def str_parse(inp):
           break
          
       while i<len(inp) and inp[i] not in znaki:
+       #print(temp_arr,i)     
        temp_arr[j] += inp[i]
        i += 1 
        if i>=len(inp):
@@ -39,8 +41,9 @@ def str_parse(inp):
         temp_arr.remove('')  
     if temp_arr[-1] not in znaki:
        temp_arr[-1]=float(temp_arr[-1])
-    #print(temp_arr)        
+   #print(temp_arr)        
     return temp_arr
   except:
     temp_arr = ['=']
+    #print(temp_arr)
     return temp_arr 

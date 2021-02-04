@@ -21,5 +21,11 @@ def brackets(br_array):
     if m == '':
       br_array.remove('')
       br_array.remove('')
-  #print(br_array_l[1:len(br_array_l)-1])   
+  #print(len(br_array_l[1:len(br_array_l)-1]))
+  if len(br_array_l[1:len(br_array_l)-1]) == 1:
+    br_array_l.pop()
+    br_array_l.append('-')
+    br_array_l.append(0)
+    br_array_l.append(')')
+  #print(br_array_l[1:len(br_array_l)-1])
   return br_array_l[1:len(br_array_l)-1]

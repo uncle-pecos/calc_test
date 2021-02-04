@@ -9,3 +9,5 @@ def return_res(znak,a,b):
         return result.mult(a,b)
     elif znak == '/':
         return result.divis(a,b) 
+    elif znak == '^':
+        return result.step(a,b)    

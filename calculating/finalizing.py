@@ -4,7 +4,16 @@ from calculating.brackets_del import brackets
 def final(arr):
   br_o = 0
   br_c = 0
-  znaki = ('+', '-', '*', '/', '(', ')')  
+  oper = 0
+  znaki = ('+', '-', '*', '/', '(', ')', '^')
+  znaki_wo_br = ('+', '-', '*', '/', '^')
+
+  # for i in arr:
+  #    if i not in znaki:
+  #      oper += 1
+  # # print(oper)
+  # if oper <= 1:
+  #    return 'input data error // incorrect symbols or wrong data'
   if '(' in arr:
     for i in arr:
       if i == '(':
@@ -21,4 +30,8 @@ def final(arr):
           break   
         return final(arr)
   else:
-    return calculating_w_out_br(arr)
+    if calculating_w_out_br(arr) == 'zero division':
+      return calculating_w_out_br(arr)
+    else:     
+      #return round(calculating_w_out_br(arr),8)
+      return calculating_w_out_br(arr)

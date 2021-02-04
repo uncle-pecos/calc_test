@@ -6,12 +6,12 @@ def calculating_w_out_br(arr):
   st1 = []
   st2 = ['']
   temp = 0
-  znaki = ('+', '-', '*', '/')
+  znaki = ('+', '-', '*', '/', '^')
   if arr == ['=']:
       return 'input data error // incorrect symbols or wrong data'
-  elif len(arr)<3 or (arr[-1] in znaki) :
-      return 'input data error // not enough data'    
-  
+  #elif len(arr)<3 or (arr[-1] in znaki) :
+  #    return 'input data error // not enough data'
+  #print(arr)
   while temp < len(arr):
     #print(st1,st2)
     if st2 == []:
@@ -20,6 +20,7 @@ def calculating_w_out_br(arr):
     if arr[temp] not in znaki:
       st1.append(arr[temp])
       temp += 1
+      #print(st1,st2)
 
     elif arr[temp] in znaki:
       if st2 == []:
@@ -49,10 +50,12 @@ def calculating_w_out_br(arr):
             if 'zero division' in st1:
               st1[0] = 'zero division'
               return st1[0]
-            st1[len(st1)-2] = return_res(st2[len(st2)-1], st1[len(st1)-2], st1[len(st1)-1])
+            if len(st1) == 1:
+              break  
+            st1[len(st1)-2] = return_res(st2[len(st2)-1], st1[len(st1)-2], st1[len(st1)-1])            
             st1.pop()
             st2.pop()
- 
+            
 
         else:
           if st2 == []:
@@ -68,9 +71,12 @@ def calculating_w_out_br(arr):
           st2.pop()          
           st1.reverse()
           st2.reverse()
-  #print(st1,st2,temp)
-  #print(st1,'  --  ') 
-  if str(st1[0])[-2:] == '.0' :
-    return int(st1[0])
-  else:
-    return st1[0]
+          #print(st1,st2,temp)
+  #print(st1,'  --  ')
+  try:
+    if str(st1[0])[-2:] == '.0' :
+      return int(st1[0])
+    else:
+      return st1[0]
+  except:
+    return 'input data error // incorrect symbols or wrong data'
