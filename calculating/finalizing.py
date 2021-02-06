@@ -23,12 +23,15 @@ def final(arr):
     if br_o != br_c:
       return 'input data error (brackets mismatch)'        
     else:      
-      while len(arr) >= 0:  
-        arr[arr.index('')]=calculating_w_out_br(brackets(arr))  
-        if len(arr) == 1 or len(arr) == 2:  
-          return arr[0]
-          break   
-        return final(arr)
+      while len(arr) >= 0:
+        try:  
+          arr[arr.index('')]=calculating_w_out_br(brackets(arr))  
+          if len(arr) == 1 or len(arr) == 2:  
+            return arr[0]
+            break   
+          return final(arr)
+        except:
+          return 'input data error // incorrect symbols or wrong data'  
   else:
     if calculating_w_out_br(arr) == 'zero division':
       return calculating_w_out_br(arr)

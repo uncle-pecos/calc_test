@@ -30,7 +30,7 @@ def calculating_w_out_br(arr):
         if 'zero division' in st1:
             st1[0] = 'zero division'
             return st1[0]
-        if len(st1) > 1 and (priority(st2[len(st2)-1])==1 or priority(st2[len(st2)-1])==2):
+        if len(st1) > 1 and (priority(st2[len(st2)-1])==1 or priority(st2[len(st2)-1])==2 or priority(st2[len(st2)-1])==0):
           st1[len(st1)-2] = return_res(st2[len(st2)-1], st1[len(st1)-2], st1[len(st1)-1] )
           st1.pop()
         st2.pop()
