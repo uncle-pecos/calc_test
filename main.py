@@ -1,5 +1,6 @@
 from calculating.string_parsing import str_parse
 from calculating.finalizing import final
+from calculating.str_check import checking
 
 
 
