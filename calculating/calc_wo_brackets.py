@@ -42,7 +42,7 @@ def calculating_w_out_br(arr):
         st2.pop()
         st2.append(arr[temp])
         temp += 1
-      elif priority(arr[temp]) == priority(st2[len(st2)-2]):
+      elif priority(arr[temp]) == priority(st2[len(st2)-1]):
           if len(st1) > 1 and priority(st2[len(st2)-1])==2:
              st1[0] = return_res(st2[0], st1[0], st1[1] )
              st1.pop()   
@@ -60,18 +60,18 @@ def calculating_w_out_br(arr):
             break
     if temp == len(arr):
       while st2 != []:
-        if st2[len(st2)-1] != '-':
+        if '-' in st2:
             if 'zero division' in st1:
               st1[0] = 'zero division'
               return st1[0]
             if len(st1) == 1:
               break
-            #st1[0] = return_res(st2[0], st1[0], st1[1])      
-            st1[len(st1)-2] = return_res(st2[len(st2)-1], st1[len(st1)-2], st1[len(st1)-1])            
-            #del st1[1]
-            #del st2[0]
-            st1.pop()
-            st2.pop()
+            st1[0] = return_res(st2[0], st1[0], st1[1])      
+            #st1[len(st1)-2] = return_res(st2[len(st2)-1], st1[len(st1)-2], st1[len(st1)-1])            
+            del st1[1]
+            del st2[0]
+            #st1.pop()
+            #st2.pop()
             
 
         else:
