@@ -17,7 +17,7 @@ def final(arr):
   #    return 'input data error // incorrect symbols or wrong data'
 
 
-
+  #print(arr, len(arr)) 
   if '(' in arr:
     for i in arr:
       if i == '(':
@@ -26,17 +26,19 @@ def final(arr):
         br_c += 1
     if br_o != br_c:
       return 'input data error (brackets mismatch)'        
-    else:      
+    else:
+      #print(arr, len(arr))       
       while len(arr) >= 0:
         try:
-          for m in arr:
-            if m == '':
-              count += 1 
-          #print(arr)
-          #arr.pop('')
-          if count >1:
-             arr.pop()   
-          arr[arr.index('')]=calculating_w_out_br(brackets(arr))  
+          # for m in arr:
+          #   if m == '':
+          #     count += 1 
+          # #print(arr)
+          # #arr.pop('')
+          # if count >1:
+          #    arr.remove('')   
+          arr[arr.index('')]=calculating_w_out_br(brackets(arr))
+          #print(arr, len(arr))  
           if len(arr) == 1 or len(arr) == 2:  
             return arr[0]
             break   
