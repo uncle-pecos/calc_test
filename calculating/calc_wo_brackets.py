@@ -7,7 +7,7 @@ def calculating_w_out_br(arr):
   st2 = ['']
   temp = 0
   znaki = ('+', '-', '*', '/', '^')
-  print(arr)
+  #print(arr)
   # if '' in arr:
   #     arr.pop('')
   if arr == ['=']:
@@ -16,7 +16,7 @@ def calculating_w_out_br(arr):
   #    return 'input data error // not enough data'
   #print(arr)
   while temp < len(arr):
-    print(st1,st2)
+    #print(st1,st2)
     if st2 == []:
             break
     #print(temp)
@@ -31,7 +31,7 @@ def calculating_w_out_br(arr):
     elif arr[temp] in znaki:
       if st2 == []:
             break
-      print(st1,st2,temp)
+      #print(st1,st2,temp)
       if priority(arr[temp]) > priority(st2[len(st2)-1]):
         if 'zero division' in st1:
             st1[0] = 'zero division'
@@ -46,7 +46,7 @@ def calculating_w_out_br(arr):
           if len(st1) > 1 and priority(st2[len(st2)-1])==2:
              st1[0] = return_res(st2[0], st1[0], st1[1] )
              st1.pop()   
-             print(st1,st2,'-----------')
+             #print(st1,st2,'-----------')
           del st2[0]
           st2.append(arr[temp])
           temp += 1   
@@ -55,9 +55,9 @@ def calculating_w_out_br(arr):
         temp += 1 
     
 
-    print(st1,st2,'++')
+    #print(st1,st2,'++')
     if st2 == []:
-            break
+        break
     if temp == len(arr):
       while st2 != []:
         if '-' in st2:
@@ -88,9 +88,9 @@ def calculating_w_out_br(arr):
           st2.pop()          
           st1.reverse()
           st2.reverse()
-          print(st1,st2,temp)
+          #print(st1,st2,temp)
   #st1.pop('')
-  print(st1,'  --  ')
+  #print(st1,'  --  ')
   try:
     if str(st1[0])[-2:] == '.0' :
       return int(st1[0])
