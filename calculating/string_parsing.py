@@ -41,7 +41,7 @@ def str_parse(inp):
         temp_arr.remove('')  
     if temp_arr[-1] not in znaki:
        temp_arr[-1]=float(temp_arr[-1])
-   #print(temp_arr)        
+    #print(temp_arr)        
     return temp_arr
   except:
     temp_arr = ['=']

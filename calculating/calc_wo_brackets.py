@@ -7,6 +7,9 @@ def calculating_w_out_br(arr):
   st2 = ['']
   temp = 0
   znaki = ('+', '-', '*', '/', '^')
+  print(arr)
+  # if '' in arr:
+  #     arr.pop('')
   if arr == ['=']:
       return 'input data error // incorrect symbols or wrong data'
   #elif len(arr)<3 or (arr[-1] in znaki) :
@@ -17,7 +20,10 @@ def calculating_w_out_br(arr):
     if st2 == []:
             break
     #print(temp)
-    if arr[temp] not in znaki:
+    if arr[temp] == '':
+          temp += 1
+          pass
+    elif arr[temp] not in znaki:
       st1.append(arr[temp])
       temp += 1
       #print(st1,st2)
@@ -41,6 +47,7 @@ def calculating_w_out_br(arr):
         st2.append(arr[temp])
         temp += 1 
     
+
     #print(st1,st2)
     if st2 == []:
             break
@@ -72,7 +79,8 @@ def calculating_w_out_br(arr):
           st1.reverse()
           st2.reverse()
           #print(st1,st2,temp)
-  #print(st1,'  --  ')
+  #st1.pop('')
+  print(st1,'  --  ')
   try:
     if str(st1[0])[-2:] == '.0' :
       return int(st1[0])

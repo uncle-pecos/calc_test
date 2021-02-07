@@ -16,7 +16,7 @@ def checking(inp):
         return False  
 
 
-  znaki_wo_br = ('+', '-', '*', '/')
+  znaki_wo_br = ('+', '-', '*', '/', '^')
   znaki_wo_min = ('+', '/', '*')
   #znaki_wo_mult = ('+', '/', '-', '^')
   inp = inp.replace('(-','(0-')
@@ -27,10 +27,25 @@ def checking(inp):
     if len(inp) >= 2:
       inp = inp[:0] + '0' + inp[0:]
   
-  if inp[len(inp)-1] in znaki_wo_br or inp[len(inp)-1] - '(':
+  if inp[len(inp)-1] in znaki_wo_br or inp[len(inp)-1] == '(':
           return False
 
-  m=0
+  count = 0
+  for m in inp:
+        if m =='(':
+              count +=1
+  if count >= 2:
+      for m in range(1,len(inp)-1): 
+              if inp[m] == '(' and inp[m-1] not in znaki_wo_br:
+                    return False  
+  
+
+  if inp[0] != '(':
+        for m in range(len(inp)-1): 
+              if inp[m] == '(' and inp[m-1] not in znaki_wo_br:
+                    return False 
+
+
   if len(inp)>=3:
         for m in range(len(inp)-1): 
           if inp[m] == '(' and inp[m+1] in znaki_wo_min:
@@ -39,6 +54,8 @@ def checking(inp):
             return False
           elif inp[m] in operands and inp[m+1] == '(':
             return False
+          #elif inp[m] == ')' and  inp[m+1] in operands:
+          #  return False     
         return inp 
   else:
       return inp            

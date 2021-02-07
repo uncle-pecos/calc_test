@@ -5,6 +5,7 @@ def final(arr):
   br_o = 0
   br_c = 0
   oper = 0
+  count = 0
   znaki = ('+', '-', '*', '/', '(', ')', '^')
   znaki_wo_br = ('+', '-', '*', '/', '^')
 
@@ -14,6 +15,9 @@ def final(arr):
   # # print(oper)
   # if oper <= 1:
   #    return 'input data error // incorrect symbols or wrong data'
+
+
+
   if '(' in arr:
     for i in arr:
       if i == '(':
@@ -24,7 +28,14 @@ def final(arr):
       return 'input data error (brackets mismatch)'        
     else:      
       while len(arr) >= 0:
-        try:  
+        try:
+          for m in arr:
+            if m == '':
+              count += 1 
+          #print(arr)
+          #arr.pop('')
+          if count >1:
+             arr.pop()   
           arr[arr.index('')]=calculating_w_out_br(brackets(arr))  
           if len(arr) == 1 or len(arr) == 2:  
             return arr[0]

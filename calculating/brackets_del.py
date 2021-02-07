@@ -27,5 +27,5 @@ def brackets(br_array):
     br_array_l.append('-')
     br_array_l.append(0)
     br_array_l.append(')')
-  #print(br_array_l[1:len(br_array_l)-1])
+  print(br_array_l[1:len(br_array_l)-1])
   return br_array_l[1:len(br_array_l)-1]
