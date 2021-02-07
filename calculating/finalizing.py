@@ -27,7 +27,7 @@ def final(arr):
     if br_o != br_c:
       return 'input data error (brackets mismatch)'        
     else:
-      print(arr, len(arr))       
+      #print(arr, len(arr))       
       while len(arr) >= 0:
         try:
           # for m in arr:
@@ -49,6 +49,6 @@ def final(arr):
     if calculating_w_out_br(arr) == 'zero division':
       return calculating_w_out_br(arr)
     else:  
-      print(arr, len(arr))   
+      #print(arr, len(arr))   
       #return round(calculating_w_out_br(arr),8)
       return calculating_w_out_br(arr)
