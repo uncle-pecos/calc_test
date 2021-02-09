@@ -3,13 +3,11 @@ from calculating.str_check import checking
 def str_parse(inp):
   znaki = ('+', '-', '*', '/', '^','(', ')')
   temp_arr = ['']
-  #print (checking(inp))
   if checking(inp) == False:     
      temp_arr = ['=']
      return temp_arr 
   else:
-    inp = checking(inp)     
-  #print(inp)      
+    inp = checking(inp)        
   i = 0
   j = 0
 
@@ -23,8 +21,7 @@ def str_parse(inp):
         if i>=len(inp):
           break
          
-      while i<len(inp) and inp[i] not in znaki:
-       #print(temp_arr,i)     
+      while i<len(inp) and inp[i] not in znaki:  
        temp_arr[j] += inp[i]
        i += 1 
        if i>=len(inp):
@@ -40,10 +37,8 @@ def str_parse(inp):
       if m == '':
         temp_arr.remove('')  
     if temp_arr[-1] not in znaki:
-       temp_arr[-1]=float(temp_arr[-1])
-    #print(temp_arr)        
+       temp_arr[-1]=float(temp_arr[-1])       
     return temp_arr
   except:
     temp_arr = ['=']
-    #print(temp_arr)
     return temp_arr 

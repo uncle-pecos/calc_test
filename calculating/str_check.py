@@ -15,6 +15,14 @@ def checking(inp):
     if m not in znaki and m not in operands:
         return False  
 
+  br_c = 0
+  for m in inp:
+        if m == '(':
+              br_c += 1
+        elif m == ')':
+              br_c -=1
+        if br_c < 0:
+              return False
 
   znaki_wo_br = ('+', '-', '*', '/', '^')
   znaki_wo_min = ('+', '/', '*')
@@ -40,10 +48,10 @@ def checking(inp):
                     return False  
   
 
-  if inp[0] != '(':
-        for m in range(len(inp)-1): 
-              if inp[m] == '(' and inp[m-1] not in znaki_wo_br:
-                    return False 
+  # if inp[0] != '(':
+  #       for m in range(len(inp)-1): 
+  #             if inp[m] == '(' and inp[m-1] not in znaki_wo_br:
+  #                   return False 
 
 
   if len(inp)>=3:

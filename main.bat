@@ -1,1 +1,1 @@
-cmd /k cmd /c python main.py
+py main.py

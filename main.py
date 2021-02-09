@@ -11,8 +11,9 @@ def main_c(inp_str_):
 	
 exit = True	
 while exit:
-	print('Input string \n Input "exit" for exit')
+	print('Input string \nInput "exit" for exit')
 	inp_str = input()
+	print('<===Answer===>')
 	if inp_str == 'exit':
 		exit = False
 		break

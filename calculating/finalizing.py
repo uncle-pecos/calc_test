@@ -9,15 +9,6 @@ def final(arr):
   znaki = ('+', '-', '*', '/', '(', ')', '^')
   znaki_wo_br = ('+', '-', '*', '/', '^')
 
-  # for i in arr:
-  #    if i not in znaki:
-  #      oper += 1
-  # # print(oper)
-  # if oper <= 1:
-  #    return 'input data error // incorrect symbols or wrong data'
-
-
-  #print(arr, len(arr)) 
   if '(' in arr:
     for i in arr:
       if i == '(':
@@ -26,19 +17,10 @@ def final(arr):
         br_c += 1
     if br_o != br_c:
       return 'input data error (brackets mismatch)'        
-    else:
-      #print(arr, len(arr))       
+    else:   
       while len(arr) >= 0:
         try:
-          # for m in arr:
-          #   if m == '':
-          #     count += 1 
-          # #print(arr)
-          # #arr.pop('')
-          # if count >1:
-          #    arr.remove('')   
           arr[arr.index('')]=calculating_w_out_br(brackets(arr))
-          #print(arr, len(arr))  
           if len(arr) == 1 or len(arr) == 2:  
             return arr[0]
             break   
@@ -46,9 +28,7 @@ def final(arr):
         except:
           return 'input data error // incorrect symbols or wrong data'  
   else:
-    if calculating_w_out_br(arr) == 'zero division':
+    if calculating_w_out_br(arr) == 'zero division' or calculating_w_out_br(arr) == 'Result too large':
       return calculating_w_out_br(arr)
     else:  
-      #print(arr, len(arr))   
-      #return round(calculating_w_out_br(arr),8)
       return calculating_w_out_br(arr)
