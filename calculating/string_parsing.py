@@ -1,6 +1,6 @@
 from calculating.str_check import checking
 
-def str_parse(inp):
+def str_parse(inp):  
   znaki = ('+', '-', '*', '/', '^','(', ')')
   temp_arr = ['']
   if checking(inp) == False:     

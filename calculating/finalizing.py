@@ -28,7 +28,4 @@ def final(arr):
         except:
           return 'input data error // incorrect symbols or wrong data'  
   else:
-    if calculating_w_out_br(arr) == 'zero division' or calculating_w_out_br(arr) == 'Result too large':
-      return calculating_w_out_br(arr)
-    else:  
       return calculating_w_out_br(arr)

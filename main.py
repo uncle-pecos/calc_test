@@ -13,11 +13,11 @@ exit = True
 while exit:
 	print('Input string \nInput "exit" for exit')
 	inp_str = input()
-	print('<===Answer===>')
+	print('<===Answer===>')	
 	if inp_str == 'exit':
 		exit = False
 		break
-	else:		
+	else:			
 		print(main_c(inp_str))
 		print('<-------------------------------->')
 
