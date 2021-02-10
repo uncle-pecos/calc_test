@@ -6,7 +6,10 @@ class Calc:
             return 'Result too large'
 
     def minus(self, a, b):
-        return a - b
+        try:
+            return a - b
+        except OverflowError:
+            return 'Result too large'
 
     def mult(self, a, b):
         try:

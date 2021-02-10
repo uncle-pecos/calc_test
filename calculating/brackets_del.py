@@ -1,4 +1,4 @@
-def brackets(br_array):
+def brackets(br_array):                                     #находим выражение во внутренних скобках и передаем далее выражение без скобок
   i = 0
   br_array_l = []
   while i < len(br_array):
@@ -26,4 +26,6 @@ def brackets(br_array):
     br_array_l.append('-')
     br_array_l.append(0)
     br_array_l.append(')')
+  while '' in br_array_l:
+    br_array_l.remove('')   
   return br_array_l[1:len(br_array_l)-1]
