@@ -64,11 +64,6 @@ def test_final():
     assert final(arr) == res
 
 def test_final1():
-    arr = ['(', 5.0, '+', '(', 0, '-', 2.0, ')', ')', ')']
-    res = 'input data error (brackets mismatch)'
-    assert final(arr) == res
-
-def test_final2():
     arr = ['(', 35.0, '-', '(', 44.0, '-', '(', 58.0, '*', 2.0, '^', 6.0, ')', '+', 13.0, '-', 14.0, ')', '/', 2.0, ')']
     res = 1869.5
     assert final(arr) == res
@@ -229,3 +224,23 @@ def test_str7():
     inp = '(35-(44-(58*2^6)+13-14)/2)'
     out = '(35-(44-(58*2^6)+13-14)/2)'
     assert checking(inp) == out
+
+def test_result():
+    inp = '(35-(44-(58*2^6)+13-14)/2)'
+    out = 1869.5
+    assert final(str_parse(checking(inp))) == out
+
+def test_result1():
+    inp = '(35)'
+    out = 35
+    assert final(str_parse(checking(inp))) == out
+
+def test_result2():
+    inp = '2^(456,0-456.0)'
+    out = 1
+    assert final(str_parse(checking(inp))) == out
+
+def test_result3():
+    inp = '(11)^(-2+4*(5-3*1-2^0))'
+    out = 121
+    assert final(str_parse(checking(inp))) == out
