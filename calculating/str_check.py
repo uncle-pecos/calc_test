@@ -27,6 +27,7 @@ def checking(inp):
 
   znaki_wo_br = ('+', '-', '*', '/', '^')
   znaki_wo_min = ('+', '/', '*')
+  znaki_wo_op_br = ('+', '-', '*', '/', '^', ')')
   inp = inp.replace('(-', '(0-')                                              #делаем автозамену для удобства подсчета
   inp = inp.replace('(((', '(1*(1*(') 
   inp = inp.replace('((', '(1*(')    
@@ -47,13 +48,15 @@ def checking(inp):
                     return False  
   
   if len(inp)>=3:
-        for m in range(len(inp)-1): 
+        for m in range(len(inp)-1):   
           if inp[m] == '(' and inp[m+1] in znaki_wo_min:
             return False
           elif inp[m] in znaki_wo_br and (inp[m+1] in znaki_wo_br or inp[m+1] == ')'):               
             return False
           elif inp[m] in operands and inp[m+1] == '(':
             return False
+          elif inp[m] == ')' and inp[m+1] not in znaki_wo_op_br : 
+            return False      
         return inp 
   else:
       return inp            
